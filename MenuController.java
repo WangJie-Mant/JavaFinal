@@ -1,6 +1,11 @@
 package JavaFinal;
 
 import java.util.Scanner;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.io.IOException;
 
 public class MenuController {
     Scanner scanner;
@@ -13,7 +18,7 @@ public class MenuController {
         running = true;
 
         if (this.deviceManager == null || this.logManager == null) {
-            this.deviceManager = new DeviceManager();
+            this.deviceManager = new deviceManager();
             this.logManager = new LogManager();
         }
 
@@ -135,7 +140,6 @@ public class MenuController {
         } else {
             System.out.println("设备ID不存在，请检查输入。");
         }
-        break;
     }
 
     private void checkDeviceFault() {

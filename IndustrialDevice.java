@@ -1,5 +1,7 @@
 package JavaFinal;
 
+import java.util.List;
+
 public class IndustrialDevice {
     private Enumcenter.DeviceType deviceType;
     private Enumcenter.DeviceState state;
