@@ -26,7 +26,7 @@ public class deviceManager {
         System.out.println("当前设备列表:");
         for (IndustrialDevice device : devices) {
             System.out.println("设备ID\t设备型号\t设备功率\t设备状态\t");
-            System.out.println(device.getDeviceID() + "\t" + device.getDeviceModel() + "\t" + device.getDevicePower()
+            System.out.println(device.getDeviceID() + "\t" + device.getDeviceModel() + "\t" + device.getPower()
                     + "\t" + device.getState().getDescription());
         }
     }

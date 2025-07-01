@@ -1,6 +1,7 @@
 package JavaFinal;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class IndustrialDevice {
     private Enumcenter.DeviceType deviceType;
@@ -11,7 +12,7 @@ public class IndustrialDevice {
     private long deviceRunningTime;
     private List<I_Sensor> sensors;
 
-    public IndustrialDevice(int deviceID, String deviceModel, int devicePower) {
+    public IndustrialDevice(String deviceID, String deviceModel, int devicePower) {
         this.deviceID = deviceID;
         this.deviceModel = deviceModel;
         this.devicePower = devicePower;
@@ -45,7 +46,7 @@ public class IndustrialDevice {
         for (I_Sensor sensor : sensors) {
             if (sensor.isAbnormal()) {
                 System.out.println("传感器" + sensor.getName() + "异常: " + sensor.getFaultDescription());
-                this.state = DeviceState.ERROR;
+                this.state = Enumcenter.DeviceState.ERROR;
             } else {
                 System.out.println("传感器" + sensor.getName() + "正常");
             }
@@ -57,7 +58,7 @@ public class IndustrialDevice {
     }
 
     public String getDeviceType() {
-        return this.deviceType;
+        return this.deviceType.getTypeName();
     }
 
     public String getDeviceID() {
@@ -72,11 +73,11 @@ public class IndustrialDevice {
         return this.devicePower;
     }
 
-    public DeviceState getState() {
+    public Enumcenter.DeviceState getState() {
         return this.state;
     }
 
-    public void setState(DeviceState state) {
+    public void setState(Enumcenter.DeviceState state) {
         this.state = state;
     }
 
@@ -99,7 +100,7 @@ public class IndustrialDevice {
     }
 
     public boolean isRunning() {
-        return this.state == DeviceState.RUNNING;
+        return this.state == Enumcenter.DeviceState.RUNNING;
     }
 
     public void updateSensorData() {
