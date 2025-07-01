@@ -4,7 +4,7 @@ public class Motor extends IndustrialDevice {
     double rotationSpeed;
     double loadRate;
 
-    public Motor(String deviceID, String model, double power) {
+    public Motor(String deviceID, String model, int power) {
         super(deviceID, model, power);
     }
 

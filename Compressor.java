@@ -4,7 +4,7 @@ public class Compressor extends IndustrialDevice {
     double pressure;
     double flowRate;
 
-    public Compressor(String deviceID, String model, double power) {
+    public Compressor(String deviceID, String model, int power) {
         super(deviceID, model, power);
     }
 
