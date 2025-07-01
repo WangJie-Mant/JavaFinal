@@ -5,6 +5,10 @@ import java.util.List;
 public class deviceManager {
     List<IndustrialDevice> devices;
 
+    public deviceManager() {
+        this.devices = new java.util.ArrayList<>();
+    }
+
     public void addDevice(IndustrialDevice device) {
         this.devices.add(device);
     }
@@ -37,12 +41,12 @@ public class deviceManager {
         }
     }
 
-    public void createDevice(String deviceType, String deviceID, String model, double power) {
+    public void createDevice(String deviceType, String deviceID, String model, int power) {
         IndustrialDevice newDevice = null;
         if (deviceType.equalsIgnoreCase("Motor")) {
-            newDevice = new Motor(deviceID, model, power);
+            newDevice = new Motor(Enumcenter.DeviceType.MOTOR, deviceID, model, power);
         } else if (deviceType.equalsIgnoreCase("Compressor")) {
-            newDevice = new Compressor(deviceID, model, power);
+            newDevice = new Compressor(Enumcenter.DeviceType.COMPRESSOR, deviceID, model, power);
         }
         if (newDevice != null) {
             this.addDevice(newDevice);

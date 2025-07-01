@@ -4,8 +4,9 @@ public class Compressor extends IndustrialDevice {
     double pressure;
     double flowRate;
 
-    public Compressor(String deviceID, String model, int power) {
-        super(deviceID, model, power);
+    public Compressor(Enumcenter.DeviceType deviceType, String deviceID, String model, int power) {
+        super(deviceType, deviceID, model, power);
+        this.addSensor(new PressureSensor(this, deviceID, model, power));
     }
 
     public void initSensors() {

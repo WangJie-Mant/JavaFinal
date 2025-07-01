@@ -22,11 +22,12 @@ public class MenuController {
             this.logManager = new LogManager();
         }
 
-        while (running) {
+        initTestDevices();
 
-            initTestDevices();
+        while (running) {
             displayMainMenu();
             int choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -85,7 +86,7 @@ public class MenuController {
         System.out.println("请输入设备型号:");
         String deviceModel = scanner.nextLine();
         System.out.println("请输入设备功率:");
-        double devicePower = scanner.nextDouble();
+        int devicePower = scanner.nextInt();
         scanner.nextLine();
 
         deviceManager.createDevice(deviceType, deviceID, deviceModel, devicePower);

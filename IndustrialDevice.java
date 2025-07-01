@@ -12,10 +12,11 @@ public class IndustrialDevice {
     private long deviceRunningTime;
     private List<I_Sensor> sensors;
 
-    public IndustrialDevice(String deviceID, String deviceModel, int devicePower) {
+    public IndustrialDevice(Enumcenter.DeviceType deviceType, String deviceID, String deviceModel, int devicePower) {
         this.deviceID = deviceID;
         this.deviceModel = deviceModel;
         this.devicePower = devicePower;
+        this.deviceType = deviceType;
         this.state = Enumcenter.DeviceState.STANDBY;
         this.sensors = new ArrayList<>();
     }
@@ -37,6 +38,7 @@ public class IndustrialDevice {
 
         for (I_Sensor sensor : sensors) {
             if (!sensor.isAbnormal()) {
+                sensor.updateValue();
                 System.out.println("来自传感器" + sensor.getName() + "的数据：" + sensor.getValue() + " " + sensor.getUnit());
             }
         }

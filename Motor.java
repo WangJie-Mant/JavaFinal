@@ -4,8 +4,9 @@ public class Motor extends IndustrialDevice {
     double rotationSpeed;
     double loadRate;
 
-    public Motor(String deviceID, String model, int power) {
-        super(deviceID, model, power);
+    public Motor(Enumcenter.DeviceType deviceType, String deviceID, String model, int power) {
+        super(deviceType, deviceID, model, power);
+        this.addSensor(new VibrationSensor(this, deviceID, model, power));
     }
 
     public void initSensors() {
